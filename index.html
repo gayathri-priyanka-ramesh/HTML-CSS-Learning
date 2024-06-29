@@ -1,0 +1,741 @@
+<!DOCTYPE html> <!-- HTML Version 5 -->
+<html lang="en">
+    <head>
+        <!-- meta contains description of the page -->
+        <meta charset="UTF-8"> <!-- contails all character encoded (UTF-8 is default) -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"> <!-- Version of internet explorer to be loaded on client -->
+        <!-- HTML code is to be displayed on browser (differs from browser to browser with minute variations)
+             If the code is written compatible to older versions, then it should be modified to work with newer versions
+             If users work with older versions, code has to be maintained to work in those browsers
+             content="ie=5" -> even if user has latest edge version, the page is to be loaded with ie5 version -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive behaviour -->
+        <!-- name and content pair used in search engines to find the page (author and name, description and described text)-->
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/Favicon.png" /> <!-- Icon for the Document in Page Tab -->
+        <title>Document</title> <!-- Displayed in Page Tab-->
+        <!-- 3 types of applying CSS: Inline, Internal, External 
+             Order of priority: Inline>[Internal|External] which is defined recently -->
+        <!-- Internal CSS (Links CSS properties inside the HTML file) 
+             Applied to all the tags in a same file but not other files (used when working with one file)
+             style tag consists of selectors with their {property:value;} pairs-->
+        <style> 
+            h4{
+                color: rgb(212, 45, 224);
+                text-align:center;
+            }
+            a{
+                color: #d22c2c;
+                text-align: center; /* not applicable to anchor tag */
+            }
+        </style> <!-- values are not considered in the presence of external CSS defined below it -->
+        <!-- External CSS (Links CSS file to HTML file) 
+             Applied to all the tags in all files that are linked (used when working in projects) -->
+        <link rel="stylesheet" href="css/style.css" type="text/css"> 
+        <style>
+            h4{
+                color: green;
+                text-decoration-color: crimson;
+            }
+        </style> <!-- values are updated in the presence of internal CSS below external CSS-->
+    </head>
+    <body>
+        <!-- Layout Tags like 'header', 'nav', 'hgroup', 'article', 'section', 'aside', 'footer' are introduced in HTML5 (instead od meaningless name like 'div') -->
+        <header> <!-- Contains header section of webpage -->
+            <h1 style="text-align: center;">HTML5 and CSS3</h1>
+            <nav> <!-- To group navigation section -->
+                <!-- File Name -> Checks in same directory
+                     '/'       -> Checks in root directory
+                     './'      -> Checks in own directory
+                     '../'     -> Checks in parent directory
+                     '../../'  -> Checks in parent of parent directory -->
+                <a href="next.html">Next Page</a>
+                <a href="parent/parent.html">Parent Page</a> 
+                <a href="parent\child\child.html">Child Page</a>
+            </nav>
+            <!-- Types of HTML tag elements: Block and Inline
+                 Block elements start in new line by default (h, p, div, ol, ul, li, table, tr, form, etc.)
+                 Inline elements start in same line by default (a, img, span, etc.) -->
+            <!-- Structural Markup (Changes in Structure) -->
+            <h2>Structural Markup Elements</h2>
+            <hgroup> <!-- To group Headings -->
+                <h1>Heading 1</h1> <h2>Heading 2</h2><!-- Displayed in next line --> 
+                <!-- Inline CSS (Links CSS properties inline of HTML tags) 
+                    Applied to a single line (used when a single line is decorated)
+                    style attribute consists of property:value; pairs -->
+                <h3 style="color: red; text-decoration:line-through;">Heading 3</h3> 
+                <h4 style="color:blue;">Heading 4</h4> <!-- Values are updated in the presence of inline CSS -->
+                <h5>Heading 5</h5> <!-- Sibling of h1 and Adjacent sibling of h4,h6-->
+                <h6>Heading 6</h6> <!-- Sibling of h1 and Adjacent sibling of h5-->
+            </hgroup> 
+        </header> 
+        <p>This is a paragraph</p>  <!-- Displayed in next line -->
+        <i>italics</i>
+        <b>bold</b> <!-- Displayed in same line -->  
+        <u>underline</u> <!-- Used in html4 not in html5-->
+        <p>a<sup>2</sup></p>
+        <p>h<sub>2</sub>o</p>
+        <!-- Multiple id can be given seperated by ',' to apply style in CSS file
+             This not efficient as id should be unique and this requires lots of ids
+             Hence, tags that need styling can be grouped in a class -->
+        <aside> <!-- To group Miscellaneous Contents -->
+            <p class="greentext"> <!-- class is used to group elements to apply common CSS style -->
+                line1
+                    line2 without                 br  <!-- White Space Collapsing done by browser-->
+            </p>
+            <p class="greentext"> <!-- class name can be reused -->
+                line1 <br> <!-- Line Break (<br />) -->
+                    line2 with br
+                <hr color="black"/> <!-- Horizontal line (<hr>) -->
+            </p>
+        </aside>
+        <!-- Semantic Markup (Convey extra information)
+             Used by blind people in screen reader softwares (browser makes these lines to be read in strong or emplasised way) -->
+        <p>
+            <!-- Semantic tags change structure sometimes -->
+            <h2>Semantic Markup Elements</h2>
+            <strong>Strong</strong> in bold<br /> 
+            <em>Emplasis</em> in italics <br>
+            <cite>The future of the mind </cite> by Michio Kaku<br />
+            <q>The ability to observe without evaluating is the highest form of intelligence </q>
+            <article> <!-- To group Blogs and Posts -->
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad magnam assumenda enim porro cum praesentium asperiores at error! Eveniet atque ipsam ipsa excepturi. Perspiciatis laboriosam ullam assumenda commodi esse rerum.</p>
+            </article>
+            <blockquote> <!-- Displayed in Seperate Block -->
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores aut vero doloribus alias. 
+                <h2>Hello World!</h2> <!-- Not a sibling of h1-->
+                <h6>Hello World!</h6> <!-- Not an adjacent sibling of h1-->
+                Dolor sapiente blanditiis fugiat quidem facilis ducimus corporis, vel velit doloremque dolorem repellat doloribus culpa mollitia fuga.
+            </blockquote>
+            <dfn> <!-- Displayed in italics -->
+                <span id="definition">Democracy is a system of government</span> <!-- Identity of this section (id is unique)-->
+                by the whole population or all the eligible members of a state, typically through elected representatives. 
+                <!-- span is used to seperate a group of phrases that are set with an id to apply CSS style -->
+            </dfn><br />
+            <address>abc@gmail.com</address>
+            <p>
+                <del>$599</del> <!-- Old Value -->
+                <ins>now $400</ins> <!-- New Value --> <br>
+                <s>Old number 999887767</s> <!-- Strikethrough-->
+            </p>
+        </p>
+        <p>
+            <!-- Semantic tags not changing structure -->
+            <abbr>ISRO</abbr> <br />  
+            &coprod; &copy; &and; &yen; &reg; &lt; &gtcc;<!-- Escape Characters -->             
+        </p> <hr>
+        <!-- To group as a seperate section -->
+        <section> <!-- section is parent of p -->
+            <h2>Parent - Child - Descendant</h2>
+            <p>Para1 outside Blockquote (Immediate Child of section): Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo quas natus officiis quam architecto neque modi commodi, minima eaque, at nihil vel vitae dicta, eos accusamus cupiditate cumque?</p>
+            <blockquote>
+                Before Descendant Para (Immediate Child of section): Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, eligendi! Recusandae quibusdam ad libero quae blanditiis, ratione voluptas, sint unde, possimus odit assumenda cumque porro labore deserunt est vero autem.
+                <p>Para inside Blockquote (Descendant of section - not immediate child): Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus fugiat ut unde aliquam quos veritatis mollitia eveniet. Quas magni corrupti aliquam saepe! Reiciendis dolore, voluptatem voluptas eaque quo Aliquid!</p>
+                After Descendant Para (Immediate Child of section): Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab asperiores modi distinctio officiis quam magni laudantium omnis soluta. Odio cupiditate et sint dolore reprehenderit aperiam veniam molestias in optio consequatur?
+            </blockquote>
+            <p>Para2 outside Blockquote (Immediate Child of section): Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore explicabo quas natus officiis quam architecto neque modi commodi, minima eaque, at nihil vel vitae dicta, eos accusamus cupiditate cumque?</p>
+            <p>
+                Before Definition (Immediate Child of section): Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis voluptate quos earum omnis repellat assumenda quaerat odit placeat, numquam, quisquam dolores nam veniam doloremque excepturi cupiditate consectetur accusamus, aut iste?
+                <dfn>Definition inside Para (Descendant of section - not immediate child): Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt iusto similique voluptatibus at non nesciunt, quos, fuga corporis hic eum eaque? Esse modi non a obcaecati consequuntur, dicta minima.</dfn>
+                After Definition (Immediate Child of section): Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis voluptate quos earum omnis repellat assumenda quaerat odit placeat, numquam, quisquam dolores nam veniam doloremque excepturi cupiditate consectetur accusamus, aut iste?
+            </p>
+            <dfn>Definition outside Para (Descendant of section - also immediate child): Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex deserunt iusto similique voluptatibus at non nesciunt, quos, fuga corporis hic eum eaque? Esse modi non a obcaecati consequuntur, dicta minima.</dfn>
+        </section> <hr>
+        <p> 
+            <h2>Links</h2>
+            <!-- Anchor Tag for Hyperlinks (CLickable - Mouse Pointer to Hand Symbol)-->
+            <!-- href is Hypertext Reference --> 
+            <a href="">Empty Link looks like visisted</a> <br>
+            <a href="" style="text-decoration: none";>Reload</a> <br> <!-- Reloads page in same tab-->
+            <a href="#unorderedlist">Unordered List</a> <br> <!-- Moves to section with given id -->
+            <!-- Relative URL requires just file path (Same website)-->
+            <a href="next.html">Next Page</a> <br> <!-- Reloads page in same tab-->
+            <a href="parent/parent.html">Parent Page</a> <br> <!-- Requires complete path inside folder -->
+            <a href="parent\child\child.html">Child Page</a> <br>
+            <!-- Absolute URL requires complete path (Other websites)-->
+            <a href="https://www.google.com">Load Google Here</a> <br> <!-- Loads url in same tab-->
+            <a href="https://www.google.com" target="_blank">Load Google in new tab</a> <br> <!-- Loads url in same tab-->
+            <a href="mailto:xyz@gmail.com">Send Mail</a> <br>
+        </p> <hr>
+        <h2>Images & Text Styling</h2>
+        <!-- Empty Tag (No closing tag) -->
+        <!-- alt displayed when image fails to load (must be described or left empty) 
+             alt text is read out by screen reader softwares
+             title is displayed on hover
+             width and height in pixels (can also be controlled im CSS) -->
+        <img src="img\prog.jpeg" alt="programming" title="codes" width="300" height="150"> 
+        <h5 id="xxx">Contains ID but not Class</h5>
+        <h5 class="aaa">Contains Class but not ID</h5>
+        <h5 id="yyy" class="bbb">Contains both ID and Class</h5> <!-- Recent defined style is applied -->
+        <h5>Not contain both ID and Class</h5>
+        <p id="passage">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quos temporibus corporis placeat minima, nobis laudantium reprehenderit eos recusandae quo, ipsum, perspiciatis ducimus? Provident beatae vel, distinctio inventore possimus quod. 
+        </p>
+        <p class="txt cls1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum consectetur voluptate quam inventore delectus, numquam corrupti accusantium natus veritatis vitae. Sapiente nam accusamus adipisci tempore tempora cupiditate in nobis id.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+            <span id="serif">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="sdoc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="sans-serif">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="ssclean">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="monospace">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="mcode">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="cursive">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="chndwrt">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="fantacy">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+            <span id="fdec">Lorem ipsum dolor sit amet consectetur adipisicing elit.</span> <br>
+        </p>
+        <div class="defaulttextsize">
+            <!-- px is fixed -->
+            <!-- em calculates from parent relatively -->
+            <!-- rem calculates from root (default of browser) relatively (recommended) -->
+            <p id="pa1">DEFAULT SIZE = 16PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+            <p id="pa2">1EM -> 16PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+            <p id="pa3">1REM -> 16PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+            <p id="pa4">2EM -> 32PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+            <p id="pa5">2REM -> 32PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+            <div class="alteredtextsize1">
+                <p id="pb1">ALTERED SIZE = 20PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                <p id="pb2">1EM OF 16PX -> 16PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                <p id="pb3">1REM OF 16PX -> 16PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                <p id="pb4">2EM OF 16PX -> 32PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                <p id="pb5">2REM OF 16PX -> 32PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                <div class="alteredtextsize2">
+                    <p id="pc1">ALTERED SIZE = 20PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                    <p id="pc2">1EM OF 16PX -> 16PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                    <p id="pc3">1REM OF 16PX -> 16PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                    <p id="pc4">2EM OF 16PX -> 32PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                    <p id="pc4">2REM OF 16PX -> 32PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+                </div>
+            </div>
+        </div>
+        <img src="\prog.jpeg" alt="Alternate text" title="sample"> <br> 
+        <!-- Align is not used in HTML5 (Used in older versions, hence in red) align="left|right|top|bottom|middle"-->
+        <h4>Align Left</h4>
+        <img src="img\prog.jpeg" alt="programming" title="codes" width="300" height="150" align="left">
+        <p id="xaay">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, repellendus minima? Veritatis enim deleniti non recusandae totam, quibusdam iste voluptatem corrupti perferendis. Atque quaerat distinctio recusandae architecto ullam tenetur ad.
+         </p>
+        <p id="abc xyz">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates sunt, adipisci, eaque iure esse, harum dolore cupiditate et vero dolorum ex quidem accusantium. Rerum aut quisquam sed consequatur, mollitia omnis? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        </p>
+        <p id="zyx cba">
+            Eos, repellendus minima? Veritatis enim deleniti non recusandae totam, quibusdam iste voluptatem corrupti perferendis. Atque quaerat distinctio recusandae architecto ullam tenetur ad.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates sunt, adipisci, eaque iure esse, harum dolore cupiditate et vero dolorum ex quidem accusantium. Rerum aut quisquam sed consequatur, mollitia omnis?
+        </p> 
+        <h4>Align Right</h4>
+        <img src="img\prog.jpeg" alt="programming" title="codes" width="300" height="150" align="right"> 
+        <p class="cls1 cls2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, repellendus minima? Veritatis enim deleniti non recusandae totam, quibusdam iste voluptatem corrupti perferendis. Atque quaerat distinctio recusandae architecto ullam tenetur ad.Lorem ipsum dolor sit amet consectetur adipisicing. </p> 
+        <figure>
+            <img src="img\prog.jpeg" alt="programming" title="codes" width="500" height="300">
+            <a href="img/prog.jpeg" download="">Click to Download</a> <!-- Download cannot be used in img tag -->
+            <!-- href="img\prog.jpeg" is not downloadable -->
+            <figcaption align="center">Programming</figcaption> 
+        </figure> <hr>
+        <h2>Box Styling</h2>
+        <div class="vpp">
+            <div class="pcntc">
+                <div class="vmind">
+                    <div class="vmaxd">
+                        <div class="pxd"></div>
+                    </div>
+                </div>
+            </div>
+        </div> <br>
+        <div class="box1">
+            <div class="box2">
+                <div class="box3">
+                    <div class="box4"></div>
+                </div>
+            </div>
+        </div> <br>
+        </div> <br>
+        <div class="divpara1">
+            <p class="para1">
+                The border-image property takes the image and slices it into nine sections, like a tic-tac-toe board. It then places the corners at the corners, and the middle sections are repeated or stretched as specified. <br>
+                <img src="/img/border.png" alt=""><br>
+                is the given original image kept for border. <br><br>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et inventore repudiandae adipisci quisquam deserunt? Adipisci, quos natus? Commodi temporibus suscipit ullam qui optio tenetur, reprehenderit dolor magnam praesentium alias illum.
+            </p>
+        </div> <br>
+        <div class="divpara2">
+            <p class="para2"> 
+                Voluptates sunt, adipisci, eaque iure esse, harum dolore cupiditate et vero dolorum ex quidem accusantium. Rerum aut quisquam sed consequatur, mollitia omnis? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                <span id="blk"> Voluptates sunt, adipisci, eaque iure esse, harum dolore cupiditate et vero dolorum ex quidem accusantium. </span> 
+                Rerum aut quisquam sed consequatur, mollitia omnis?Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                <span id="disnone"> Rerum aut quisquam sed consequatur, mollitia omnis?Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+                Voluptates sunt, adipisci, eaque iure esse, vero dolorum ex quidem accusantium. 
+                <span id="vishid">Rerum aut quisquam sed consequatur, mollitia omnis?Lorem ipsum dolor sit amet consectetur adipisicing elit. </span>
+                Rerum aut quisquam sed consequatur, mollitia omnis?Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum aut quisquam sed conse, mollitia omnis?
+                <span id="inlblk"> Voluptates sunt, adipisci, eaque iure esse, harum dolore cupiditate et vero dolorum ex quidem accusantium. </span> 
+                Eos, repellendus minima? Veritatis enim deleniti non recusandae totam, quibusdam iste voluptatem corrupti perferendis. Atque quaerat distinctio recusandae architecto ullam tenetur ad.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates sunt, adipisci, eaque iure esse, harum dolore cupiditate et vero dolorum ex quidem accusantium. Rerum aut quisquam sed consequatur, mollitia omnis?
+            </p>
+        </div> <hr>
+        <h2>Position Styling</h2>
+        <div class="redbox">Static</div>
+        <div class="bluebox">Space unoccupied <!-- Yellow Box is static and space for content in Blue Box is unoccupied -->          
+            <div class="yellowbox">Satic (Space occupied) <!-- Black Box is absolute and space for content in Yellow Box is occupied -->
+                <div class="blackbox">Absolute</div>
+                <div class="orangebox">Fixed
+                    <div class="deepskybluebox">Inherit</div>
+                </div> 
+            </div>
+            Relative
+        </div>
+        <div class="violetbox">Relative</div>
+        <div class="greenbox">Absolute</div>
+        <div class="deeppinkbox">Sticky</div>  
+        <div>
+            <h3 id="pos">Lorem Text</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, voluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate ex vel aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+            <div class="redbox float">Float</div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, voluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate ex vel aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, voluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate ex vel aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, voluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate ex vel aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+        </div>
+        <div class="col">
+            <p>1 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus povoluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate ex vel aonsectetur odio ipsa non quisquam officiis ratione magnam iure molestiae velit est neque suscipit, possimus iusto minus laborum sapiente amet consequatur reiciendis soluta alias repellendus necessitatibus natus in quos. Sint, quidem ex quisquam eligendi alias voluptatem soluta consequuntur totam minima eius nobis, aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum rro cumque quasi sit deserunt architecto placeat! Hic id, voluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate exe earum.</p>
+            <p>2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, voluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate ex vel aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+            <p>3 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, volu eligendi alias voluptatem soluta consequuntur totam minima eius nobis, aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+            <p>4 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, voluptuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+            <p>5 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, voluptuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+        </div>
+        <div> <!-- All the emty spaces are filled -->
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus povoluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate ex vel aonsectetur odio ipsa non quisquam officiis ratione magnam iure molestiae velit est neque suscipit, possimus iusto minus laborum sapiente amet consequatur reiciendis soluta alias repellendus necessitatibus natus in quos. Sint, quidem ex quisquam eligendi alias voluptatem soluta consequuntur totam minima eius nobis, aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum rro cumque quasi sit deserunt architecto placeat! Hic id, voluptas, sunt placeat ex dolorem temporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto consequatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate exe earum.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, voluptas, sunt placeat ex dolorem t nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, volu eligendi alias voluptatem soluta consequuntur totam minima eius nobis, aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias reemporibus incidunt architecto adipisci, maiores itaque. Ipsa, quia. Iusto conseqnt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, volu eligendi alias voluptatem soluta consequuntur totam minima eius nobis, aut delectus at itaque nemo nulla nisi, molestias fuga atque. Reuatur soluta quos quod cumque. Nobis, fugit ipsam. Id cupiditate ex vel aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat dignissimos animi facilis eligendi cupiditate ex, quia modi saepe est tempora quaerat molestias qui non, atque nesciunt et natus porro cumque quasi sit deserunt architecto placeat! Hic id, volu m soluta consequuntur totam minima eius nobis, aut delectus at itaque nemo nulla nisi, molestias fuga atque. Rerum aperiam reiciendis, ut eum saepe tenetur vero, vitae alias repudiandae pariatur necessitatibus. Quod, velit enim? Odio sequi in libero sint ut atque quidem veritatis tempore earum.</p>
+        </div><hr>
+        <h2>Gradient Styling</h2>
+        <div class="ltb_rbyb">Linear Gradient - Top to Bottom (Default)</div> <br>
+        <div class="lrl_rbyb">Linear Gradient - Right to Left</div> <br>
+        <div class="lbltr_rbyb">Linear Gradient - Bottom-left to Top-right</div> <br>
+        <div class="ldeg_rbyb">Linear Gradient - Angle of 103deg</div> <br>
+        <div class="lsol_rbyb">Linear Gradient - Solid</div> <br>
+        <div class="lrep_rbyb">Linear Gradient - Repeat</div> <br>
+        <div class="lsolrep_rbyb">Linear Gradient - Solid Repeat</div> <br>
+        <div class="rio_rbyb">Radial Gradient</div> <br>
+        <div class="rsol_rbyb">Radial Gradient - Solid</div> <br>
+        <div class="rrep_rbyb">Radial Gradient - Repeat</div> <br>
+        <div class="rsolrep_rbyb">Radial Gradient - Solid Repeat</div> <hr>
+        <h2>Flexbox</h2>
+        <div class="flexparent">
+            <div class="flexboxrow"> Row Alignment (Default) <!-- Also a part of Flexbox -->
+                <p id="flrp1">1 (No Order Element 1): Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas saepsaepe? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt cone? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisciplaceat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt consectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+                <p id="flrp2">2 (Order 2): Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas sectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+                <p id="flrp3">3 (Order 1): Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas saepsaepe? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt cone? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium  pariatur animi nesciunt consectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+                <p id="flrp4">4 (No Order Element 2): Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas sectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+            </div>
+            <div class="flexboxcol"> Column-Reverse Alignment <!-- Also a part of Flexbox -->
+                <p id="flcp1">1 (Flex Size 2): Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas saepsaepe? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt cone? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt consectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+                <p id="flcp2">2 (Flex Size 1):Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas sectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+                <p id="flcp3">3 (Flex Size 2):Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas saepsaepe? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt cone? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt consectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+                <p id="flcp4">4 (Flex Size 1):Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas sectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+                <p id="flcp5">5 (Flex Size 1):Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas saepsaepe? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt cone? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt consectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+                <p id="flcp6">6 (Flex Size 2):Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas sectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+            </div>
+            <h6>Row Layout: Justified Flex-end, Aligned Center</h6>
+            <div class="flexboxrlayout">
+                <div class="flrl1">Increased size (Padding+Margin)</div>
+                <div class="flrl2">Flex Grow-rate 2</div>
+                <div class="flrl3">Flex Grow-rate 1</div>
+            </div>
+            <h6>Column Layout: Justified Space-between, Aligned Self</h6>
+            <div class="flexboxclayout">
+                <div class="flcl1">Aligned Flex-end</div>
+                <div class="flcl2">Aligned Stretch</div>
+                <div class="flcl3">Aligned Center</div>
+            </div>
+            <h6>Flex Wrap: Justified Space-evenly, Aligned Center</h6>
+            <div class="flexbox1">
+                <div class="fl1">Width 250PX and Height 100PX is Fixed but position is Wrapped according to screen size</div>
+                <div class="fl1">Width 250PX and Height 100PX is Fixed but position is Wrapped according to screen size</div>
+                <div class="fl1">Width 250PX and Height 100PX is Fixed but position is Wrapped according to screen size</div>
+                <div class="fl1">Width 250PX and Height 100PX is Fixed but position is Wrapped according to screen size</div>
+            </div>
+            <h6>Flex Wrap: Justified Space-around, Aligned Center</h6>
+            <div class="flexbox2">
+                <div class="fl2" id="fl2a">Width is updated from 250PX as 20PX and as 0PX (when Basis given) grows with a Flex Grow-rate of 2 and Height 100PX is Fixed</div>
+                <div class="fl2" id="fl2b">Width 250PX and Height 100PX is Fixed</div>
+                <div class="fl2" id="fl2c">Width 250PX and Height 100PX is Fixed</div>
+                <div class="fl2" id="fl2d">Width is updated from 250PX as 300PX and as 0PX (when Basis given) grows with a Flex Grow-rate of 1 and Height 100PX is Fixed</div>
+            </div>
+            <h6>Flex Sizing: Justified Center, Aligned Center</h6>
+            <div class="flexbox3">
+                <div class="fl3" id="fl3a">Width is updated from 150PX as 0PX (Basis) grows with a Flex Grow-rate of 1, shrinks with a Flex Shrink-rate of 2 and Height 100PX is Fixed</div>
+                <div class="fl3" id="fl3b">Width 150PX and Height 150PX is Fixed</div>
+                <div class="fl3" id="fl3c">Width is updated from 50PX as 0PX (Basis) grows with a Flex Grow-rate of 2, shrinks with a Flex Shrink-rate of 1 and Height 100PX is Fixed</div>
+                <div class="fl3" id="fl3d">Width 150PX and Height 150PX is Fixed</div>
+            </div>
+        </div> <hr>
+        <h2>Grid</h2>
+        <div class="gridparent">
+            <div class="gridtext1">
+                <div class="gridp">
+                    <p>1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>9 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>10 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>11 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+            </div>
+            <div class="gridtext2">
+                <div class="gridp">
+                    <p>1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+                <div class="gridp">
+                    <p>3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit dolores maiores rem itaque eius soluta vel vitae aspernatur iusto velit. Voluptatibus, illo quas quos iste ad eveniet at? Ipsam, itaque!</p>
+                </div>
+            </div>
+            <div class="gridnumcolflow">
+                <div class="gridn">1</div>
+                <div class="gridn">2</div>
+                <div class="gridn">3</div>
+                <div class="gridn">4</div>
+                <div class="gridn">5</div>
+                <div class="gridn">6</div>
+                <div class="gridn">7</div>
+                <div class="gridn">8</div>
+                <div class="gridn">9</div>
+                <div class="gridn">10</div>
+            </div>
+            <div class="gridnumspan">
+                <div class="gridn gridsp1">1</div>
+                <div class="gridn gridsp2">2</div>
+                <div class="gridn gridsp3">3</div>
+                <div class="gridn gridsp4">4</div>
+                <div class="gridn gridsp5">5</div>
+                <div class="gridn gridsp6">6</div>
+                <div class="gridn gridsp7">7</div>
+                <div class="gridn gridsp8">8</div>
+                <div class="gridn gridsp9">9</div>
+                <div class="gridn gridsp10">10</div>
+            </div>
+            <div class="gridlayout">
+                <div class="head">Header</div>
+                <div class="lpane">Left Pane</div>
+                <div class="mc">Main Content</div>
+                <div class="rpane">Right Pane</div>
+                <div class="foot">Footer</div>
+            </div>
+        </div> <hr>
+        <h2>Transition</h2>
+        <div class="transition">
+            <div class="square"></div>
+        </div>
+        <h2>Animation</h2>
+        <div class="animation">
+            <div class="circle"></div>
+        </div> <hr>
+        <h2>Lists</h2>
+        <ul class="ulst"> <!-- Unordered List-->
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, ipsum magnam! Ut ipsum nemo numquam libero perferendis corrupti, minima quibusdam, ex suscipit, perspiciatis placeat qui quo laborum sint possimus omnis.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, ipsum magnam! Ut ipsum nemo numquam libero perferendis corrupti, minima quibusdam, ex suscipit, perspiciatis placeat qui quo laborum sint possimus omnis.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, ipsum magnam! Ut ipsum nemo numquam libero perferendis corrupti, minima quibusdam, ex suscipit, perspiciatis placeat qui quo laborum sint possimus omnis.</li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, ipsum magnam! Ut ipsum nemo numquam libero perferendis corrupti, minima quibusdam, ex suscipit, perspiciatis placeat qui quo laborum sint possimus omnis.</li>
+            <ul class="subulst">
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, ipsum magnam! Ut ipsum nemo numquam libero perferendis corrupti, minima quibusdam, ex suscipit, perspiciatis placeat qui quo laborum sint possimus omnis.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, ipsum magnam! Ut ipsum nemo numquam libero perferendis corrupti, minima quibusdam, ex suscipit, perspiciatis placeat qui quo laborum sint possimus omnis.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, ipsum magnam! Ut ipsum nemo numquam libero perferendis corrupti, minima quibusdam, ex suscipit, perspiciatis placeat qui quo laborum sint possimus omnis.</li>
+            </ul>
+        </ul>
+        <h3>Unordered List</h3> 
+        <ul>
+            <li id="inl">Onion</li>
+            <li id="inl">Tomato</li>
+            <li>Ginger</li>
+            <li>Potato</li>
+            <ul> <!-- Inner list level 1 in circle -->
+                <li>Fruits</li>
+                <li>Snacks</li>
+            </ul>
+        </ul>
+        <h3 id="orderedlist">Ordered List</h3> <!-- Not selected by 'p.txt' -->
+        <ol type=A start="4" > <!-- Ordered List (Type="1|A|a|I|i" )-->
+            <li>Tent</li>
+            <li>Sleeping bag</li>
+            <li>Flashlight</li>
+            <li>Food items</li>
+            <ol start= 5> <!-- Ordered List (Default start="1")-->
+                <li>Fruits</li>
+                <li>Snacks</li>                
+                <ul> <!-- Inner list level 1 in circle, next inner lists all in square from level 2 -->
+                    <li>Fruits</li>
+                    <li>Snacks</li>
+                    <ul>
+                        <li>Fruits</li>
+                        <li>Snacks</li>
+                        <ul style="list-style-type:none;"> <!-- CSS Style Property style="list-style-type:disc|circle|square|none -->
+                            <li>Fruits</li>
+                            <li>Snacks</li>
+                        </ul>
+                    </ul>
+                </ul>
+            </ol>
+        </ol>
+        <div>
+            <h3>Definition List</h3>
+            <dl> <!-- Definition List -->
+                <dt>Equilateral Triangle</dt> <!-- Definition Term -->
+                <dd>A triangle is considered to be an equilateral triangle when all three sides have the same length</dd> <!-- Definition Description -->
+                <dt>Isosceles triangle</dt>
+                <dd>When two sides of a triangle are equal or congruent, then it is called an isosceles triangle</dd>
+                <dt>Scalene triangle</dt>
+                <dd> When none of the sides of a triangle are equal, it is called a scalene triangle.</dd>
+            </dl> <hr>
+        </div>
+        <h2>Table</h2> <!-- available 10% space is used -->
+        <table id="table1" border="5" bgcolor="Yellow" cellpadding="20" cellspacing="10"> 
+            <!-- thead and tbody is to given for screen reader software to recognize-->
+            <thead> <!-- Table Head-->
+                <tr> <!-- Table Row-->
+                    <th colspan="2">Name</th> <!-- Table Header (Bold and Center aligned) -->
+                    <th>ID Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="4">Students</td>
+                    <td>aaaaaaaaaa</td> <!-- Table Data (Left aligned) -->
+                    <td class="idno">x1</td>
+                </tr>
+                <tr>
+                    <td>bbbbbbbbbb</td>
+                    <td class="idno">x2</td>
+                </tr>
+                <tr>
+                    <td>cccccccccc</td>
+                    <td class="idno">x3</td>
+                </tr>
+                <tr>
+                    <td>dddddddddd</td>
+                    <td class="idno">x4</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>View</td>
+                    <td>Total Students</td>
+                    <td class="idno">4</td>
+                </tr>
+                <tr>
+                    <td>View</td>
+                    <td>Total Students</td>
+                    <td class="idno">4</td>
+                </tr>
+            </tfoot>               
+        </table> <br>
+        <table id="table2">
+            <tr> <!-- Table Row-->
+                <th>Name</th> <!-- Table Header (Bold and Center aligned) -->
+                <th>ID</th>
+            </tr>
+            <tr>
+                <td>AAAAAAAAA</td> <!-- Table Data (Left aligned) -->
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>BBBBB</td>
+                <td>2</td>
+            </tr>
+        </table> <hr>
+        <h2>Form</h2>
+        <div class="formdiv">
+            <p style="color: white;">
+                Background is not blur here as this is outside 'blurdiv' class
+            </p> 
+            <div class="blurdiv"> 
+                <h3>Blurred Area</h3>   
+                <form action="next.html" method="GET" enctype="multipart/form-data" class="form"> 
+                    <!-- action directs the specified url on clicking the button -->
+                    <!-- method="POST|GET" (POST - update data to server as name:value pair, GET - fetch data from server) -->
+                    <!-- POST shows 58error as DB is not connected -->
+                    <!-- file contents cannot be sent in single short, hence it takes multiple parts to send-->
+                    <div class="input"> <!-- Group set of elements to style in CSS (important for responsive design) -->
+                        <label class="txtlbl" for="user">User Name</label>
+                        <input type="text" name="username" id="user" placeholder="enter username" value="AAA" size="10" maxlength="5"> 
+                        <!-- name is used to update database in specified field -->
+                        <!-- id in input is connected with label using for (input box is highlighted on clicking label text) -->
+                        <!-- default value is submitted if not entered (displayed in input box)-->
+                        <!-- placeholder is not displayed if default value is given -->
+                        <!-- size defines the length of input box -->
+                        <!-- maxlength defins the length on input entered (No. of characters) -->
+                    </div> 
+                    <div class="input">
+                        <label class="txtlbl" for="">Password</label>
+                        <input placeholder="enter password" required minlength="6">
+                        <!-- Default input type is text -->
+                        <!-- placeholed is greyed out in input box -->
+                        <!-- required doesn't allow form to be submitted without entering that input field-->
+                        <!-- minimum specified character should be given --> 
+                    </div>
+                    <div class="input">
+                        <label class="txtlbl" for="email">Email</label>
+                        <input type="email" name="email" id="email"> <!-- requires @ -->
+                    </div>            
+                    <div class="input">
+                        <label class="txtlbl" for="tele">Telephone Number</label>
+                        <input type="tel" name="tele" id="tele"> <!-- requires @ -->
+                    </div>            
+                    <div class="input">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" name="dob" id="dob" min="2020-03-05" max="2030-12-25" step="3">
+                        <!-- Every third day from 5th Mar 2020 to 25th Dec 2030 id valid -->
+                    </div>
+                    <div class="input">
+                        <label class="txtlbl">Year of Passout <!-- input box is directly linked with label text without id and for -->
+                            <input type="number" min="2020" max="2030" step="2"> <!-- for is recommended -->  
+                            <!-- Values are valid from 2020 to 2030 in a step of 2 (2021, 2023, etc. are not valid)-->                 
+                        </label>
+                    </div>
+                    <div class="input">
+                        <label class="txtlbl" for="">Search Here</label>
+                        <input type="search" name="" id="">
+                    </div>
+                    <div class="input">
+                        <label class="txtlbl" for="txt">About</label>
+                        <textarea name="txt" id="txt" cols="25" rows="5">I am ...</textarea>
+                        <!-- Default cols="30" rows="10" (Given txt can be edited, if not entered, the given text is sent to server) -->
+                    </div>
+                    <div class="chkbx">
+                        <input type="checkbox" id="vehicle0" name="vehicle0" value="Bike" checked>
+                        <label for="vehicle0"> I dont't have vehicle</label><br>
+                        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                        <label for="vehicle1"> I have a bike</label><br>
+                        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                        <label for="vehicle2"> I have a car</label><br>
+                        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                        <label for="vehicle3"> I have a boat</label><br>
+                    </div>
+                    <div class="drpdwn">
+                        <select name="state" id="state">
+                            <option value="tamil nadu">Tamil Nadu</option>
+                            <option value="kerala" label="Kerala"></option>
+                            <option value="andhra pradesh" label="Andhra Pradesh">AP</option> <!-- Label value is omly considered -->
+                            <option value="karnataka" label="Karnataka"></option>
+                            <!-- Server gets state=Tamil Nadu|Andhra Pradesh-->
+                        </select>
+                    </div>
+                    <div class="drpdwn">
+                        <select name="skills" id="state" multiple>
+                            <option value="python">Python</option>
+                            <option value="java" label="Java"></option>
+                            <option value="c" label="C"></option>
+                            <option value="c++" label="C++"></option>
+                            <!-- Server gets state=Tamil Nadu|Andhra Pradesh-->
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label for="clr">Colour</label>
+                        <input type="color" name="clr" id="clr">
+                    </div>
+                    <div class="radio">
+                        <!-- Same name for a group of radio buttons (if different names, both can be checked) -->
+                        <!-- value is used to specify the result of name gender (if value no given, gender=on is sent to server)-->
+                        <!-- gender=male|female is sent to server as value attribute is given-->
+                        <input type="radio" name="gender" id="male" value="male">
+                        <label for="male">Male</label>
+                        <input type="radio" name="gender" id="female" value="female" checked>
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="input">
+                        <label for="file">Attach File</label>
+                        <input type="file" name="file" id="file">
+                    </div>
+                    <input type="hidden" name="hide" id="hide" value="xyz"> <!-- Used with JS to send hidden information to server -->
+                    <div class="btn">
+                        <button type="reset">Reset</button> <br> <!-- resets all fields to empty value or default (if given) -->
+                        <!-- both button are automatically clicked on pressing enter -->
+                        <button>Go to Next Page</button>
+                        <button type="submit">Go to Next Page</button> <br>
+                    </div>
+                    <!-- clicking the image takes to next page --> 
+                    <input type="image" src="img/prog.jpeg" alt="">         
+                    <!-- takes the query string and goes to next page with URL as it is GET method 
+                        http://127.0.0.1:5500/next.html?username=AAAaa&email=aaa%40x.com&tele=123456789&dob=2023-07-15&txt=I+am+AAA&vehicle1=Bike&vehicle2=Car&state=kerala&skills=python&skills=java&clr=%23ff0000&gender=female&file=Believe+In+You.jpg&hide=xyz&x=46&y=25 -->
+                </form> 
+            </div>
+        </div> <hr>
+        <h2>Frame</h2>
+        <iframe src="/parent/child/child.html" frameborder="50"></iframe><br><br>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d36328.07062430962!2d80.19880054879499!3d13.007127893757296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267709aa40a7d%3A0xca348695fc512750!2sGuindy%2C%20Chennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sus!4v1652697210665!5m2!1sen!2sus" width="500" height="250" style="border:BLACK 5px solid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe> 
+        <!-- loading="lazy" (ifram can load slowly but page should be loaded faster as is doesn't stop loading of other elements, 
+             if not given then the page loads only after iframe is loaded) -->
+        <!-- referrerpolicy="no-referrer-when-downgrade" 
+             (it returns 'no=referrer' if downgraded, that is, shift from https to http as it is no secured) -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/t2U989oaI1Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen> <!-- full screen is not allowed if not given -->
+        </iframe> <hr>
+        <!-- Flash is used to load audio and video with JS 
+             audio and video tags are supported only in HTML5 versions -->
+        <h2>Audio</h2>
+        <audio src="media/song.mp3" autoplay loop>Song XXX</audio> <!-- audio is displayed only when controls is given -->
+        <audio src="media/song.mp3" controls autoplay loop>Format not supported by browser</audio>
+        <!-- autoplay is used to automatically play the audio
+             loop is used to play the audio infinitely until stopped 
+             description is displayed when song fails to load -->
+        <!-- aboven method works only like this in different version
+             mp3: safari 5+, chrome 6+, IE9
+             ogg: Firefox 3.6, Chrome 6, IE9 
+             hence multiple source files can be included to play on all browsers-->
+        <audio controls loop preload="auto">
+        <!-- preload="auto|none|meta" (given when autoplay is not given)
+             (auto - play when the page is loaded, works like autoplay 
+              none - play on clocking play button, 
+              metadata - initially collect information of the audio like duration first frame, etc., 
+                         duration is diplayed and audio plays on clicking the play button) -->
+            <source src="media/song.mp3">
+            <source src="media/song.ogg">
+            Song Description            
+        </audio> <hr>
+        <h2>Video</h2>
+        <video src="media/song.mp4" controls height="250" width="500" poster="img/prog.jpeg">
+            Video Description
+        </video> <!-- poster is the thumbnail of the video (loop autoplay preload are all applicable) -->
+        <video controls height="300" width="300" autoplay muted > <!-- initially video autoplays in muted form -->
+            <source src="media/lesson.mp4" type="video/mp4">
+            <!-- when mu00000000000000
+                ltiple formats are given in source, the browser first checks the type it supports 
+                (or else, the browser should load all formats and identifies the compatible format - more time and space involved) -->
+            <p>Video format not supported by your browser</p>
+        </video> <hr>
+        <h2>Srolling Text</h2>
+        <marquee behavior="" direction="">Scrollable Text</marquee>  <!-- Default direction is left and behaviour is scroll -->
+        <marquee behavior="alternate" direction="right" width="50%" style="border: rgb(66, 66, 255) 5px solid">Scrollable Text</marquee>
+        <marquee behavior="scroll" direction="up" height="200" loop="5">Scrollable Text</marquee> <!-- disappeas after looping (default is infinite) -->
+        <marquee behavior="slide" direction="down" height="200" loop="5" style="border: rgb(66, 66, 255) 5px solid">Scrollable Text</marquee> <hr>
+        <div class="mediaq">
+            <h2>Media Query</h2>      
+            <p id="mqp1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas saepe? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt consectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+            <p id="mqp2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas saepe? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt consectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+            <p id="mqp3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni velit iusto facilis porro doloremque, provident a omnis illum voluptatem illo, neque aperiam possimus voluptas saepe? Cumque eos minus optio eum sapiente ab cupiditate asperiores, nisi commodi quisquam sit eaque laudantium placeat natus praesentium maxime dignissimos vitae nostrum adipisci. Voluptatibus accusantium officia est expedita obcaecati iste fuga pariatur. Fugiat pariatur animi nesciunt consectetur suscipit fugit cupiditate et harum? Quibusdam quasi impedit libero possimus optio harum, ad veniam veritatis eum facere reiciendis eligendi earum, eaque dicta voluptates obcaecati commodi culpa quaerat. Ratione consequuntur earum, voluptatibus eius exercitationem a totam aliquam? Possimus, illum.</p>
+        </div> <hr>
+    </body>
+</html>

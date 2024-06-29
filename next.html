@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/Favicon.png" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style1.css" type="text/css">
+    </head>
+    <body>
+        <h1>Welcome to next page</h1>
+        <a href="index.html">Home Page</a>
+        <a href="parent\parent.html">Parent Page</a> <!-- Both / and \ accepted -->
+        <a href="parent/child/child.html">Child Page</a> 
+        <p>NEW DEFAULT SIZE = 20PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+        <div class="alteredtextsize">
+            <!-- px is fixed -->
+            <!-- em calculates from parent relatively -->
+            <!-- rem calculates from root (default of browser) relatively (recommended) -->
+            <p id="pa1">1.5EM OF 20PX -> 30PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+            <p id="pa2">2EM OF PARENT (30PX) -> 60PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+            <p id="pa3">2REM OF ROOT (20PX) -> 40PX: Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, itaque ratione quas amet cumque dolore eius nulla praesentium expedita. Tempore mollitia ipsum, corrupti nesciunt quibusdam illo accusamus quis alias neque?</p>
+        </div>   
+    </body>
+</html>

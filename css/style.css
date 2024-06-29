@@ -1,0 +1,1271 @@
+/* External CSS (Links CSS file to HTML file) 
+     Applied to all the tags in all files that are linked (used when working in project) */
+/* Types of Selectors */
+/* Rules Priority: !important>Specific Rule(Most Recent specific)>Universal Rule */
+/* Universal Selector is applied to all the elements (not to those that are applied seperate properties) */
+*{ 
+    color: indigo;
+    /* Color can be represented in 4 forms
+       Color Name
+       RGB (Red, Green, Blue): rgb(0,0,0)->black 
+                               rgb(255,255,255)->white
+       Hexa-decimal (#RRGGBB): #000000->black
+                               #ffffff->white     
+       HSL (Heu, Saturation Lightness): (0,0%,0%)->black
+       used in CSS3                     (360,100%,100%)->white
+            Heu (in Degrees): 0->red
+                              60->yellow
+                              120->green
+                              180->cyan
+                              240->blue
+                              300->megenta
+                              360->red
+            Saturation (greyness in color): 0%->completely unsaturated - complete greyness
+                                            100%->completely saturated - no greyness
+            Lightness: 0%->black
+                       100%->white
+       (A->Alpha Channel): Opacity (Lack of Transparency)
+       used in CSS3             0->Completely Transparent
+                                1->Completely Opaque (Default)
+       (use normal format also as an alternative as some browsers don't support Alpha Channel and HSL)
+       RGBA (Reg, Green, Blue, Alpha)
+       Hexa-decimal (#RRGGBBAA)
+       HSLA (Heu, Saturation, Lightness, Alpha) */
+}
+/* Tag Selector (any tag - body,p,a,h) */
+h1{ 
+    color:rgb(255, 0, 140) !important; /* is applied irresepective of specific or updated properties */
+}
+h1,h2,h4{ /* Multiple Selectors (seperated by ',') */
+    color: orange;
+    text-decoration: underline;
+    background-color: rgba(194, 128, 255, 0.499);
+}
+h1{ 
+    /* Recent Styling is updated (but not universal) 
+       Specific than Universal Selector, but general than other selectors*/
+    color:rgb(255, 68, 0);
+}
+h2,h5,h6{ 
+    color: #027297 ;
+    text-decoration: underline ; 
+}
+*{ 
+    /* Recently applied values are updated (not to those that are applied seperate properties) 
+       General than Type Selectors */
+    color:firebrick;
+}
+body{
+    /* Certain properties (color, font) are inherited to all descendants
+       Certain properties (border) are not inherited to all descendants */
+    /* If 'padding' and 'margin' not set to 0, then the browser takes default spacing */
+    padding: 0; 
+    margin: 0;
+    background-color: #7fffd4;
+    border: 5px solid black; /* considers from 0 padding */
+}
+/* Most Specific Selectors */
+/* ID Selector */
+#definition{ 
+    color: blueviolet;
+}
+h5[id]{ /* selects element that contains an ID (any id) in h5 (any attribute in place of ID eg.: Class)*/
+    color: deeppink;
+}
+p#passage{ /* Selects only paragraph with id 'passage' -> p[id='passage'] */
+    color: red;
+}
+p[id*='aa']{ /* Sub-string Filtering - Selects if atleast 1 id matches */
+    color: black;
+}
+p[id^='a']{ /* Prefix Filtering - Selects if atleast 1 id matches */
+    color: red;
+}
+p[id$='a']{ /* Suffix Filtering - Selects if atleast 1 id matches */
+    color: blue;
+}
+/* Class Selector */
+.greentext{ 
+    color: green;
+}
+h5[class]{ /* selects element that contains a class (any no. of class) in h5 */
+    color: deepskyblue; /* Recent updated color is applied if element has both ID and Class */
+}
+p[class~="cls2"]{ /* selects element where given class is one among the mutiple classes of element (p[class="cls2"] doesn't apply if the element contains multiple classes) */
+    color: green;
+}
+p.txt{ /* Selects only the paragraphs with class 'txt' -> p[class='txt'] (applies even the element consists multiple classes) */
+    color: blueviolet;
+}
+/* Child Selector (selects in child and not other descendants */
+section>p{
+    color: green;
+}
+section>blockquote{
+    color: deeppink;
+}
+/* Descendant Selector */
+section dfn{
+    color:rgb(255, 0, 255);
+}
+/* Sibling Selector */
+h1~h2{
+    color: rgb(149, 0, 255);
+    text-decoration: overline;
+}
+/* Adjacent Sibling Selector */
+h5+h6{
+    color: rgb(80, 157, 3);
+} 
+/* Pseudo-class Selector */
+a:link{ /* order is to be followed if given for the same element */
+    color:blue
+}
+a:visited{
+    color: rgb(0, 128, 98);
+}
+a:hover{
+    color: red;
+    transition: 3s;
+}
+a:focus{
+    color: deeppink ;   
+    border: 5px solid greenyellow  ; /* border: thickness style color ; */
+    /* Same as -> border-width: 5px;
+                  border-style: double;
+                  border-color: greenyellow; */
+}
+a:active{
+    color: deepskyblue;
+    border: 5px solid deepskyblue  ;
+} 
+/* Pseudo-element Selector (: or ::)*/ 
+#passage::first-letter{
+    font-size: xx-large;
+}
+#passage::first-line{
+    font-size: xx-small;
+}
+/* Text */
+#passage{
+    text-align:center;
+    line-height: 2em; /* em is recommended than px as em is relative styling */
+    text-indent: 250px; 
+    /* Sometimes given in -ve (-9999px) to make heading disappear but exist in HTML 
+       (used to dispay logo with heading which is valid in search engine but not be displayed) */
+    text-shadow: 10px 20px 2px blue; /* text-shadow: horizontal-offset vertical-offset blur(optional) colour */
+}
+#serif{
+    font-family: serif; /* Default font contains extra details on end of main strokes (Documents) */
+    font-size:larger; /* Defalut size : 16px = 100% = 1em */
+    /* h1   -> 32px = 200% = 2em
+       h2   -> 24px = 150% = 1.5em
+       h3   -> 18px = 133% = 1.125em
+       body -> 16px = 100% = 1em */
+    font-style:oblique; /* font-style:normal|italic(cursive if font has italic version, else, oblique)|oblique(normal at an angle) */
+    font-weight:bold; /* font-weight:light|medium|bold|black */
+    font-stretch:extra-condensed; /* font-style:condensed|narrower|expanded */
+    text-transform: capitalize; /* text-transform:capitalize|uppercase|lowercase" */
+}
+#sdoc{
+    font-family: Georgia, 'Times New Roman', Times, serif; /* One of the font will be chosen if the font is not installed in user system */
+    font-size: 10px; /* 1px = 1/125 of an inch */
+    /* To use fixed font even if not available in user's system, download the font in 'fonts' folder inside project and give relative url
+       @font-face{
+           font-family: "Open Sans";
+           src: url("/fonts/OpenSans-webfont.woff") format("woff"),
+                url("/fonts/OpenSans-webfont.eot") format("eot"),
+                url("/fonts/OpenSans-webfont.ttf") format("ttf"),
+                url("/fonts/OpenSans-webfont.otf") format("otf"),
+                url("/fonts/OpenSans-webfont.svg") format("svg");
+           font-family: Georgia, 'Times New Roman', Times, serif;    -> display default if the formats are not supported
+       } */
+}
+#sans-serif{
+    font-family: sans-serif; /* Straight ends to letters (Clean look) */
+    font-size: 150%; /* 150% of 16px = 24px */
+    text-decoration:line-through; /* none -> to remove underline in links */
+    letter-spacing: 0.3em;
+    word-spacing: 25px;
+}
+#ssclean{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75em; /* em is calculated relatively of parent (if boby has 20px, then here 20px = 1em and then converted to 0.75em, here 16px != 1em) */
+}
+#monospace{
+    font-family: monospace; /* Fixed -width for all letters (Displaying codes - Courier, Robot) */
+}
+#mcode{
+    font-family: 'Courier New', Courier, monospace; /* Fixed -width for all letters (Displaying codes - Courier, Robot) */
+}
+#cursive{
+    font-family: cursive; /* Handwiriting form */
+}
+#chndwrt{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
+#fantasy{
+    font-family: fantasy; /* Used for fancy decoration */
+}
+#fdec{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif 
+}
+.defaulttextsize p{
+    color:red;
+}
+.alteredtextsize1 p{
+    color: blue;
+    font-size: 20px;
+}
+.alteredtextsize2 p{
+    color: green;
+    font-size: 1.5em;
+}
+#pa2{
+    font-size: 1em;
+}
+#pa3{
+    font-size: 1rem;
+}
+#pa4{
+    font-size: 2em;
+}
+#pa5{
+    font-size: 2rem;
+}
+#pb2{
+    font-size: 1em;
+}
+#pb3{
+    font-size: 1rem;
+}
+#pb4{
+    font-size: 2em;
+}
+#pb5{
+    font-size: 2rem;
+}
+#pc2{
+    font-size: 1em;
+}
+#pc3{
+    font-size: 1rem;
+}
+#pc4{
+    font-size: 2em;
+}
+#pc5{
+    font-size: 2rem;
+}
+/* Box */
+/* Every element has a box (baseline to handle width & height) around it with transparent border */
+.vpp{
+    /* View-port (Considers from Current Screen Size) Width and Height */
+    width:50vw;
+    height:50vh;
+    border: 2px solid red;
+    margin: auto 5px auto;
+    /* background-color: red; */
+}
+.pcntc{
+    /* Percent (Considers from Parent Size) Width and Height */
+    width:50%;
+    height:50%;
+    border: 2px solid blue;
+    margin: auto 35px auto;
+    /* background-color: blue; */
+}
+.vmind{
+    /* Minimum of View-port Width and Height */
+    width:50vmin;
+    height:50vmin;
+    border: 2px solid black;
+    margin: auto 65px auto;
+    /* background-color: black; */
+}
+.vmaxd{
+    /* Maximum of View-port Width and Height */
+    width:50vmax;
+    height:50vmax;
+    border: 2px solid yellow;
+    margin: auto 95px auto;
+    /* background-color: yellow; */
+}
+.pxd{
+    /* Fixed Width and Height */
+    width:50px;
+    height:50px;
+    border: 2px solid deepskyblue;
+    margin: auto 125px auto;
+    /* background-color: deepskyblue; */
+}
+.box1{
+    width:50vmax;
+    /* height:50%; -> displays in same line as it has no parent */
+    height: 50px;
+    border: 2px solid blue;
+    float:right;
+    /* margin: auto 125px auto; */
+    /* background-color: blue; */
+}
+.box2{
+    width:50%;
+    height:50vmin;
+    border: 2px solid red;
+    margin: auto 125px auto;
+    /* background-color: red; */
+}
+.box3{
+    width:50vh;
+    height:50vw;
+    border: 2px solid black;
+    margin: auto 35px auto;
+    /* background-color: black; */
+}
+.divpara1{
+    border: 5px dotted red;
+    width: 30%;
+
+}
+.para1{
+    color: red;
+    width: 150%; /* considers the width of its parent container as 100% and allocates (only the text content -> total width is added with padding) */
+    height: 500px; /* fixed for all screen size */
+    overflow: scroll; /* overflow:hidden will hide the extra content */
+    background-color: bisque;
+    border: 10px solid transparent; 
+    border-image: url("/img/border.png") 30 stretch; 
+    /* border-image: image-url slice-position middle-section-type(repeat/stretch/round);
+       round-> scales properly and repeats
+       stretch-> stretches the image once
+       repeat-> just repeats without scaling */
+    border-width: 10px 15px 20px 25px;
+    /* border-width: top right bottom left;
+       border-width: top rightleft bottom;
+       border-width: topbottom rightleft; 
+       border-width: topbottomrightleft; (same for color and style)*/
+    padding: 25%; /* Gap between border and content (inside border) */
+    margin: 25%; /* Gap between border and neighbour/outer elemnt (outside border) */
+    /* Padding and Margin are not inherited to child elements (has to be specified to each element)
+       Values of width can be specified same as border 4 sides  */
+    box-sizing: border-box;
+    /* if not given, box size exceeds 150% width because of padding and margin */
+    border-radius: 25px; /* same as border-width for all 4 sides */
+    -moz-border-radius: 25px; /* browser like mozilla and webkit introduce border radius before it was enables in CSS */
+    -webkit-border-radius: 25px; /* browser prefix is given to be compatible in those browsers */
+    /* box-shadow: -50px -40px 10px pink; */
+    /*box-shadow: horizontal-offset vertical-offset blur(optional) colour (-ve sign for opposide direction outside) */
+}
+.divpara2{
+    width:80%;
+    height:450px;
+    border: 1px solid black
+}
+.para2{
+    color: blue;
+    background-color: bisque;
+    border-top-width: 2px;
+    border-top-style: dashed;
+    border-top-color: red;
+    border-right-width: 10px;
+    border-right-style:ridge;
+    border-right-color: blue;
+    border-bottom-width: 6px;
+    border-bottom-style: double;
+    border-bottom-color: yellow;
+    border-left-width: 8px;
+    border-left-style :groove;
+    border-left-color: black;
+    box-shadow: inset 50px 40px 1px pink; /* box-shadow: direction horizontal-offset vertical-offset blur(optional) colour */
+    border-radius: 50px 10px; /* eliptical -> border-radius: topbottom rightleft; (same as border-width for all 4 sides) */
+    /* -moz-border-radius: 50px 10px;
+       -webkit-border-radius: 50px 10px; */
+    min-width: 700px; /* Doesn't shrink even for smaller screen size */
+    max-width: 1000px; /* Doesn't expand even for bigger screen size */
+    margin: 25px auto 25px; /* auto -> equal spacing for left and right as outer box is bigger (giving fixed value makes uneven size) */
+}
+#inl{
+    display: inline; /* displays block elements (starts in new line by default) in 'inline' format */
+    border: solid;
+}
+#blk{
+    display: block; /* displays inline elements (starts in same line by default) in 'block' format */
+    border: solid;
+}
+#inlblk{
+    display: inline-block; /* displays inline retaining block properties */
+    border: solid;
+}
+#disnone{
+    display: none; /* not displayed (available in page source)*/
+    border: solid
+}
+#vishid{
+    visibility: hidden; /* not visible but space is occupied (available in page source) */
+    border: solid; 
+}
+/* Position */
+.redbox{
+    color: white;
+    width:75%;
+    height: 300px;
+    background-color: red;
+    position: static; /* need not be given (default) */
+    /* Offset is not considered in static */
+}
+.bluebox{
+    color: white;
+    width:50%;
+    height: 200px;
+    background-color:blue;
+    position: relative; /* Calculates spacing with given offset from the default 'static' positioning (here below red box) */
+    /* Original space (here below red) is left unoccupied by sequential elements */
+    left:100px;
+    bottom:250px;
+    /* top:100px; */
+}
+.yellowbox{
+    color: white;
+    width:75%;
+    height: 150px;
+    background-color:yellow;
+    position: static; /* Original space (here below red and blue's original place) is left unoccupied by sequential elements */
+}
+.blackbox{
+    color: white;
+    width:50%;
+    height: 100px;
+    background-color:black;
+    position: absolute; /* Original space is occupied by sequential elements */
+    top: 25px; 
+    left: 30px;
+    /* element with absolute positioning checks the parent with non-static positioning (here bluebox)and calculates the off position (if no non-static parent till root, then offset is calculated from page size) */
+    /* usually offset is given with absolute positioning, and to have the non-static parent, just the relative positioning is used */
+}
+.orangebox{
+    color: white;
+    width:25%; /* Calculated on screen size */
+    height: 75px;
+    background-color:orange;
+    position: fixed; /* Takes fixed position in screen directly from page size (doesn't consider parent) */
+    top: 20px; 
+    left: 30px;
+}
+.deepskybluebox{
+    color: white;
+    width:20%; /* Calculated on screen size */
+    height: 50px;
+    background-color:deepskyblue;
+    position: inherit; /* Inherits the position of its parent (here orangebox is fixed) */
+    top: 50px;
+    bottom: 10px;
+}
+.violetbox{
+    color: white;
+    width:25%;
+    height: 150px;
+    background-color:violet;
+    position: relative; /* Original space is left unoccupied by sequential elements (here green box) */
+    left:100px;
+    top:100px;
+}
+.greenbox{
+    color: white;
+    width:20%;
+    height: 200px;
+    background-color:green;
+    position: absolute; /* Space is occupied by sequential elements (here pink box) */
+}
+.deeppinkbox{
+    color: white;
+    width:10%;
+    height: 75px;
+    background-color:deeppink;
+    position: sticky; /* Scrolls until it reaches its offset and remains sticky on screen */
+    top: 10px;
+    bottom: 10px;
+}
+#pos{
+    position: relative;
+    left: 200px;
+    border: 1px solid black; /* Exceeds page size 200px */
+    display: inline-block; /* Fits the content in page */
+    /* width:80%; -> another alternative to make width as 80% of page size */
+}
+p{
+    text-align: justify;
+}
+.float{
+    float:right;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    width:100px;
+    height:100px;
+}
+.col p{
+    color: brown;
+    width:30%;
+    float: left;
+    margin: 10px;
+}
+.col p:nth-child(4){
+    color:maroon;
+    clear:left; /* there is nothing to the left of it (not use the space available) */
+}
+/* Gradient */
+.ltb_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:linear-gradient(red,deepskyblue,yellow,black);     /* 'to bottom' is default (180deg) */
+}
+.lrl_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:linear-gradient(to left,red 50px,deepskyblue 150px,yellow 250px,black 350px); 
+    /* to top (0deg)|to top right (45deg)|to right (90deg)|to bottom right (135deg)|to bottom(180deg)|to bottom left (225deg)|to left(270deg)|to top left (315deg)|to top (360deg) */
+}
+.lbltr_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:linear-gradient(to top right,red 30%,deepskyblue 60%,yellow 80%,black 100%);
+}
+.ldeg_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:linear-gradient(105deg,red,deepskyblue,yellow,black);
+}
+.lsol_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    /* background:linear-gradient(105deg,red 30%,deepskyblue 60%,yellow 20%,yellow 70%,black 10%,black 10%); */
+    background:linear-gradient(105deg,red 20%,deepskyblue 50%,yellow 20%,yellow 80%,black 80%,black 10%); 
+    /* Self-transition removes gradient effect */
+}
+.lrep_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:repeating-linear-gradient(200deg,red 20px,deepskyblue 40px,yellow 60px,black 80px); 
+    /* background:repeating-linear-gradient(200deg,red,deepskyblue,yellow,black); -> values should be mentioned for repeating */
+}
+.lsolrep_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:repeating-linear-gradient(330deg,red 20%,deepskyblue 40%,yellow 20%,yellow 50%,black 50%,black 60%); 
+}
+.rio_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:radial-gradient(red,deepskyblue,yellow,black);
+}
+.rsol_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:radial-gradient(red 30%,deepskyblue 60%,yellow 20%,yellow 70%,black 10%,black 10%);
+    /* background:radial-gradient(red 20%,deepskyblue 50%,yellow 20%,yellow 80%,black 80%,black 10%);  */
+}
+.rrep_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:repeating-radial-gradient(red 20px,deepskyblue 40px,yellow 60px,black 80px); /* Self-transition removes gradient effect */
+}
+.rsolrep_rbyb{
+    color: white;
+    width:75%;
+    height: 300px;
+    background:repeating-radial-gradient(red 20%,deepskyblue 40%,yellow 20%,yellow 50%,black 50%,black 60%); 
+}
+/* Flexbox -> Flexible Box (One Dimensional Layout - Row or Column) */
+/* Best way to align contents by default (not using float - done manually) */
+.flexparent{
+    background-color: lightsalmon;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 5px;
+}
+.flexboxrow{
+    background-color: bisque;
+    border: solid 2px maroon;
+    color: black;
+    margin: 5px;
+    padding: 0px 5px; /* Some space is unoccupied at top-bottom by default (because of 'p' tag */
+    display: flex; /* Default direction is Row */
+    /* Layout of Contents: Main Axis  -> justify-content
+                           Cross Axis -> align-items
+       If Flex displayed row-vise, Horizontal Axis -> Main Axis 
+                                   Vertical Axis   -> Cross Axis
+       If Flex displayed column-vise, Horizontal Axis -> Main Axis
+                                      Vertical Axis   -> Cross Axis */
+    /* Width of the paragraph is adjusted and displayed with equal height by default */
+}
+.flexboxrow p{
+    padding: 10px;
+    color: white;
+}
+#flrp1{
+    background-color: red;
+    flex: 4;/* flex: grow-rate shrink-rate basis; (flex:__ -> grow alone is considered) */
+    /* Elements without order are displayed sequentially (in defined order) */
+}
+#flrp2{
+    background-color: blue;
+    order: 2; /* Elements with order are arranged in their specified order after unordered elements */
+    flex: 2;
+}
+#flrp3{
+    background-color: black;
+    order: 1;
+    flex: 1;
+}
+#flrp4{
+    background-color: deeppink;
+    flex: 3;
+}
+
+.flexboxcol{
+    background-color: bisque;
+    border: solid 2px maroon;
+    color: black;
+    margin: 5px;
+    padding: 0px 5px;
+    display: flex;
+    flex-direction:column-reverse; 
+    /* Each passage has their default margin (16px) around) */
+    /* Width can be given in ratio for each part (should be given for all elements if one element contains as it is a ratio) */
+}
+.flexboxcol p{
+    padding: 10px;
+    color: white;
+}
+#flcp1{
+    background-color: red;
+    /* flex: 1; -> deesn't work well for column alignment */
+}
+#flcp2{
+    background-color: blue;
+    /* flex: 2; */
+}
+#flcp3{
+    background-color: red;
+}
+#flcp4{
+    background-color: blue;
+}
+#flcp5{
+    background-color: red;
+}
+#flcp6{
+    background-color: blue;
+}
+.flexboxrlayout{
+    background-color: bisque;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 0px 5px;
+    display: flex; 
+    min-height: 100px; /* Height can expand beyond min-height as it is needed if there is no max-height constraint*/
+    /* max-height: 150px; */
+    /* Layout of Contents (common for all elements if given for container) : 
+       Main Axis  -> justify-content
+       Cross Axis -> align-items
+       If Flex displayed row-vise, Horizontal Axis -> Main Axis 
+                                   Vertical Axis   -> Cross Axis
+       If Flex displayed column-vise, Horizontal Axis -> Main Axis
+                                      Vertical Axis   -> Cross Axis */
+    justify-content:flex-end; /* Horizontal Axis for Row alignment */
+    align-items:center; /* Vertical Axis for Row alignment */
+}
+.flexboxrlayout div{
+    color: black;
+}
+.flrl1{
+    width:150px;
+    min-height: 200px; /* Minimum 250px is displayed even in small screens and this makes the 'min-height' of its parent grow from 100px to 250px+margin */
+    max-height: 550px;
+    background-color: deepskyblue;
+    border: 2px solid black;
+    margin: 5px;
+    padding: 50px; /* expands the width and height */
+    /* width=(50+150+50)=250px, height=(50+200+50)=300px */
+}
+.flrl2{
+    width:150px;
+    min-height: 200px; 
+    background-color: red;
+    border: 2px solid black;
+    margin: 5px;
+    /* padding: 5px; */
+    flex:2; /* Justifyed-self */
+}
+.flrl3{
+    width:150px;
+    min-height: 400px; 
+    background-color: yellow;
+    border: 2px solid black;
+    margin: 5px;
+    /* padding: 5px; */
+    flex:3; 
+    /* Remaining space left by Blue (Original Size) is occupied by Red (2-times) and Yellow (3-times) */
+}
+.flexboxclayout{
+    background-color: bisque;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 0px 5px;
+    display: flex; 
+    flex-direction: column;
+    min-height: 700px;
+    justify-content:space-between; /* Even spaces in between but no space at ends */
+    /* align-items:flex-end; -> can be aligned for each element */
+}
+.flexboxclayout div{
+    color: black;
+} 
+.flcl1{
+    width:150px;
+    height: 150px;
+    background-color: deepskyblue;
+    border: 2px solid black;
+    margin: 5px;
+    padding: 50px; /* width=(50+150+50)=250px, height=(50+150+50)=250px */ 
+    align-self: flex-end;
+}
+.flcl2{
+    /* width:150px; -> should not be given with 
+    'stretch' */
+    height: 150px; 
+    background-color: red;
+    border: 2px solid black;
+    margin: 5px;
+    /* padding: 5px; */
+    align-self:stretch; /* Occupies the entire space */
+}
+.flcl3{
+    width:150px;
+    height: 150px;
+    background-color: yellow;
+    border: 2px solid black;
+    margin: 5px;
+    /* padding: 5px; */
+    align-self: center;
+}
+.flexbox1{
+    background-color: bisque;
+    border: solid 2px maroon;
+    min-height: 400px;
+    margin: 5px;
+    padding: 0px 5px;
+    display: flex; 
+    /* flex-direction: column; -> doesn't work with wrap */
+    flex-wrap: wrap; /* Aligns element according to screen size by not shrinking the width ('no-wrap' by default) */
+    justify-content:space-evenly; /* Even spaces at ends and in-between */
+    align-items:center; /* Occupies the entire height */
+}
+.fl{
+    width: 250px;
+    height: 100px;
+    background-color: deeppink;
+    border: 2px solid black;
+    margin: 5px;
+}
+.flexbox1 div{
+    color: black;
+} 
+.flexbox2{
+    background-color: bisque;
+    border: solid 2px maroon;
+    min-height: 400px;
+    margin: 5px;
+    padding: 0px 5px;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content:space-around; /* Little space at ends and even spaces in-between */
+    align-items:center; 
+}
+.flexbox2 div{
+    color: black;
+}
+#fl2a{
+    width: 20px;
+    flex-grow: 2;
+    /* Empty spaces are equally distributed to the elements with 'flex-grow' and then grown considering their original size */
+    /* flex-basis: 0; */
+    /* Flex-basis splits the empty spaces in the given ratio to the elements with 'flex-grow' and then grows by considering their width as 0 */
+}
+#fl2d{
+    width:300px;
+    flex-grow: 1;
+    /* flex-basis: 0; */
+} 
+.flexbox3{
+    background-color: bisque;
+    border: solid 2px maroon;
+    min-height: 400px;
+    margin: 5px;
+    padding: 0px 5px;
+    display: flex; 
+    justify-content:center; 
+    align-items:center; 
+}
+.flexbox3 div{
+    color: black;
+}
+.fl3{
+    width: 150px;
+    height: 150px;
+    background-color: deeppink;
+    border: 2px solid black;
+    margin: 5px;
+}
+#fl3a{
+    flex-grow: 1;
+    flex-shrink: 2;
+    flex-basis: 0;
+    overflow: scroll;
+}
+#fl3c{
+    flex: 2 1 0px; 
+    /* flex: grow-rate shrink-rate basis; (flex:__ -> grow alone is considered) */
+    overflow: scroll;
+}
+/* Grid -> Two Dimensional Layout (Row and Column) */
+.gridparent{
+    background-color: lightsalmon;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 5px;
+}
+.gridp{
+    background-color: bisque;
+    border: solid 2px maroon;
+    /* margin: 10px 5px; -> need not be given as 'column-gap' and 'row-gap' given */
+    padding: 0px 10px; /* Some space is unoccupied at Tom-Bottom by default (Style of 'p' tag) */
+}
+.gridtext1{
+    background-color: pink;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 3fr 2fr minmax(200px,1fr) ; /* Units can be mixed (% px fr auto) */
+    /* fr -> fractional ratio, auto -> fills the remaining space */
+    grid-template-rows: 1fr 2fr; /* Optional to give */
+    grid-auto-rows: 250px; /* Give the size for exceeding rows else size as needed by their content is alloted */
+    row-gap: 20px; /* Top-Bottom margin (10+10=20px) */
+    column-gap: 10px; /* Left-Right margin (5+5=10px) */
+    /* align-items: stretch; -> by default */
+}
+.gridtext2{
+    background-color: pink;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 10px;
+    display: grid;
+    /* 'auto-fill' and 'auto-fit' -> Fits the no. of columns compatible to screen size without using horizontal scrollbar (similar to wrap in flex) 
+       minmax() -> doesn't shrink beyond 200px and maximum ratio is 1fr
+       repeat(3, 1fr) -> function for defining 1fr 1fr 1fr 
+       repeat(4, minmax(300 px,1fr)) -> all 4 columns doesn't shrink beyond 300px and expand in same ratio */
+    grid-template-columns: repeat(auto-fill, minmax(200px,1fr)) ;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px,1fr)) ;  */
+    /* auto-fill -> allocates the fixed space and leaves the remaining space unoccupied
+       auto-fit -> allocates the fixed space and occupies the remaining space by expanding */
+    grid-template-rows: 1fr 2fr; /* Allocates space if given */
+    gap:20px; /* gap=__px -> if equal space between rows and columns */
+}
+.gridn{
+    background-color: bisque;
+    border: solid 2px maroon;
+    color: black;
+    /* width:50px; */
+    /* height:300px; */
+    font-size: 5em;
+    display: grid; /* Given just to center the content in the div (can also use flex to center) */
+    justify-content: center; /* Horizontal Axis */
+    align-items: flex-end; /* Vertical Axis */
+}
+.gridnumcolflow{
+    background-color: pink;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column; 
+    /* If Flow is on Column, then additional columns are added when no. of elements in grid increases */
+    grid-template-columns: repeat(3,100px); /* justify-content makes no change if in 'fr' */
+    grid-auto-columns: 75px; /* if not given, additional column takes size as that of its content's size */
+    grid-template-rows: 150px 200px 250px; /* has to be given as the flow is on column */
+    gap:20px;
+    justify-content: end; /* Horizontal Axis for the entire cell */
+    justify-items: start; 
+    /* For the content inside each cell (default 'stretch') */
+    align-items: start; 
+    /* Vertical Axis - cell size is reduced to size of content and aligned at top (aligned at middle for 'center' and at bottom for 'end') */
+    /* align-content:end; */
+}
+.gridnumspan{
+    background-color: pink;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column; 
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-columns: 1fr; 
+    grid-template-rows: 150px 200px 250px; 
+    gap:20px;
+    /* mxn grid consists of: m+1 horizontal lines (1 to m+1 or -m+1 to -1 )
+                             n+1 vertical lines (1 to n+1 or -n to -1 (one empty line)) 
+       lines can be viewed by inspecting the grid container by clicking 'grid' in html of inspect tab
+       3x4 grid has 4 horizontal lines (1 to 4 or -4 to -1) 
+                    5 vertical lines (1 to 5 or -4 to 1 (one empty line))*/
+}
+.gridsp1{
+    /* grid-column: span 2; */
+    /* grid-column-start: 1;
+    grid-column-end: -2; */
+    /* grid-column: start-linenumber end-linenumber (similar for row) */
+    grid-column: 1/-2; 
+    grid-row: -4/-2;
+}
+.gridsp3{
+    justify-self: center;
+    align-self: self-start;
+}
+.gridlayout{
+    background-color: pink;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1.5fr;
+    grid-template-rows: 10vh 80vh 10vh; /* View-port (entire screen) is split into 10% 80% 10% */
+    grid-template-areas: "h h h" "lp mc rp" "f f f"; /* Each name shoud be connected with respective class that should fit in the specified area */
+}
+.gridlayout div{
+    background-color: bisque;
+    border: solid 2px maroon;
+    color: black;
+    font-size: 2em;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex; /* Given just to center the content in the div (can also use grid to center) */
+    justify-content: center; /* Horizontal Alignment */
+    align-items: center; /* Vertical Alignment of each element */
+}
+.head{
+    grid-area: h;
+}
+.lpane{
+    grid-area: lp;
+}
+.mc{
+    grid-area: mc;
+}
+.rpane{
+    grid-area: rp;
+}
+.foot{
+    grid-area: f;
+}
+/* Transition -> Effecting a gradual change based on an event on an element */
+.transition{
+    background-color: lightsalmon;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 5px;
+}
+.square{
+    background-color: red;
+    border: solid 2px white;
+    margin: 5px;
+    width:300px;
+    height: 300px;
+    /* border-radius: 0%; */
+    transition-property: background-color, transform; 
+    /* All properties changes gradually if not mentioned (properies are seperated by ',' and 'all' is default) Considered for both 'delay' and 'duration' */
+    transition-duration: 3s;
+    transition-delay: 5s; 
+    /* duration -> Speed of transition (Changes abrupty if not given)
+       delay -> Transition starts after specified time */
+    transition-timing-function: cubic-bezier(1,-0.69, 1, 1.12); 
+    /* transition-timing-function: ease-in        -> start slow, end fast (default)
+       (speed of transition)       ease-out       -> start fast, end slow
+                                   ease-in-out    -> start slow, middle fast, end slow 
+                                   linear         -> uniform speed
+                                   cubic-bezier() -> function copied by inspecting the graph of        element and changing the transition */
+    /* transition: background-color,transform 3s 5s cubic-bezier(1,-0.69, 1, 1.12); */
+    /* transition: property duration delay timing-function;
+       Shorthand property to mention all 4 properties (only one transition-property can be mentioned here, if more than one transition-property is given, then the last mentioned transition-property alone is considered */
+}
+.square:hover{
+    background-color: blue; 
+    width:400px;
+    height:400px;
+    transform: rotate(45deg);
+    /* transform: scale(3); */
+    /* transform: translatez(50px); */
+    /* transform: rotate()  -> rotates on the plane
+                  rotatex() -> rotates on horizontal axis
+                  rotatey() -> rotates on vetical axis
+                  rotatez() -> rotates on perpendicular axis to plane (same as 'rotate()' in 2D figures)
+                  scale()  -> increases size (from updated width and height) in all 3 axis (can have -ve values appears to shrink and then expands)
+                  scalex() -> increases size in horizontal axis
+                  scaley() -> increases size in vertical axis
+                  scalez() -> increases size in perpendicular axis (no effect for 2D figures) 
+                  translate()   -> moves in horizontal axis (-ve values moves in opposite direction)
+                  translatex()  -> moves in horizontal axis (similar to 'translate()')
+                  translatey()  -> moves in vertical axis
+                  translatez()  -> moves in perpendicular axis (no effect for 2D figures) */ 
+}
+/* Animation -> Effecting a change (not based on an event) on an element */
+.animation{
+    background-color: lightsalmon;
+    border: solid 2px maroon;
+    margin: 5px;
+    padding: 5px;
+}
+.circle{
+    background-color: blue;
+    border: solid 2px white;
+    border-radius: 50%; /* Value greater than 50% for a square is a circle. and for a square is an elipse */
+    width:50px;
+    height: 50px;
+    margin: 5px;
+    position: relative; /* To move the element */
+    animation-name: cir; /* Any name */
+    animation-duration: 10s; /* After the duration, initial state is retained abrupty */
+    animation-timing-function: cubic-bezier(1,-0.69, 1, 1.12);
+    animation-delay: 3s;
+    animation-iteration-count: 3; /* count of animation to take place */
+    /* animation-direction: reverse; */
+    animation-fill-mode: forwards;
+    /* animation-fill-mode: forwards  -> stays at the final state of animation
+                            backwards -> returns to initial state (default) */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode;
+       Shorthand property to mention all 7 properties */
+}
+@keyframes cir { /* identifier is the given animation-name (any no. of keyframes can be given) */
+    0%{ /* Initial state of animation (need not mention all properties) */
+        left:0px; /* to get smoother movement */
+        top:0px;
+    }
+    25%{
+        background-color: yellow;
+        border-radius: 0%;
+        width:400px;
+        height: 200px;
+        left: 100px;
+        top: 100px;
+    }
+    50%{
+        background-color: black;
+        border-radius: 50%;
+        width:300px;
+        height: 300px;
+        left: 200px;
+        top: 200px;
+    }
+    75%{
+        background-color: red;
+        border-radius: 50%;
+        width: 200px;
+        height: 400px;
+        left: 300px;
+        top: 300px;
+    }
+    100%{ /* Final state of animation */
+        background-color: deepskyblue;
+        width:100px;
+        height:100px;
+        left: 400px;
+        top: 400px;
+    }
+}
+/* Styling List */
+li{
+    margin: 2% 10% 5%;
+}
+.ulst{
+    list-style: outside armenian;
+    /* same as -> list-style-type:armenian;
+                  list-style-position: outside; */
+}
+.subulst{
+    list-style-image: url(/img/prog.jpeg);
+    /* list-style-image -> size of the image is displayed */
+    /* list-style-position: outside; -> doesn't work */
+}
+.subulst li{
+        list-style: none;
+}
+.subulst li::before { 
+        content: ''; /* Must be given */
+        display: inline-block;
+        background-image: url("../img/prog.jpeg");
+        margin-right: 10px;
+        height: 20px;
+        width: 30px;
+        /* background-image -> Set the image as background image for list-item */
+}
+/* Styling Table */
+#table1{
+    width: 50%;
+    margin: auto;
+    border-spacing: 20px 30px; /* border-spacing: horizontal vertical; */
+}
+th{
+    text-transform: uppercase;
+    border-bottom: 5px dotted deeppink;
+}
+td{
+    border: 2px solid black;
+}
+.idno{
+    text-align: right;
+}
+tr:nth-child(odd){ /* Includes Header and Footer */
+    background-color: chartreuse;
+}
+tr:nth-child(even){
+    background-color:cadetblue;
+}
+#table2{
+    width: 80%;
+    border-collapse: collapse; /* No space between cells and boders are merged (seperate-> unmerges the borders) */
+    border: 2px solid black;
+}
+/* Styling Form */
+.formdiv{
+    border: solid white;
+    /* color: white; */
+    background-image: url("/img/icon-star.svg");
+    /* background-size: cover; */
+    /* used to fit the size if the image is large (small image is expanded to fit the size by not repeating which looks as if the image is blurred) */  
+    /* background-position: 10px -40px;  */
+    /* background-position: horizontal-shift vertical-shift; */
+    background-repeat:space; 
+    /* horizontal-shift and vertical shift are filled with same picture (in repetition) if this is not given (makes sense if 'background-size: cover;' not given) */
+    width: 50%;
+    /* height: 500%; -> changes are effective if given in px */
+}
+.blurdiv{
+    backdrop-filter: blur(1px); /* Blurs the image not content */
+    /* filter: blur(1px); -> blurs the content not image 
+       -webkit-filter: blur(8px); */
+    border: solid deeppink;
+    width: 80%;
+    margin: auto;
+    /* text-align: center; */
+    /* color:white; */
+    /* text-decoration-line: overline; */
+    /* text-decoration-color: pink; */
+}
+.blurdiv h3,label{
+    color: aliceblue;
+}
+.form{
+    /* color: black !important; */
+    border: solid deeppink;
+    background-color: rgba(255, 192, 203, 0.427);
+    width: 75%;
+    margin: 5px auto 5px;
+    padding: 20px 10px;
+    font-size: 17px;
+}
+.form .txtlbl{
+    display: block;
+}
+.input input, textarea{
+    width: 100%;
+    font-size: 1.15em;
+    border: 2px solid deepskyblue;
+    padding: 5px 10px;
+    box-sizing: border-box; /* if not given, box size exceeds 100% width */
+    margin: 5px 0px;
+    background: none; /* if not given, white background */
+}
+input:focus{
+    background-color: rgba(0, 191, 255, 0.816);
+}
+.btn button{
+    text-align: center;
+    background-color:  rgba(0, 191, 255, 0.816);
+    border: 2px solid deepskyblue;
+    border-radius: 5px;
+    margin: 5px;
+}
+.radio input{
+    /* border: 2px solid deepskyblue; */
+    accent-color: deeppink;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+}
+.chkbx input{
+    /* border: 2px solid deepskyblue; */
+    accent-color: deeppink;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+} 
+select{
+    border: 2px solid deepskyblue;
+    /* accent-color: deeppink; */
+}
+select:hover{
+    color: deeppink;
+}
+option{
+    color: deepskyblue;
+    color-scheme:inherit;
+    /* background-color: deeppink; */
+}
+option:hover{
+    background-color: deeppink;
+}
+/* Media Query (always to be given at last as CSS takes the recently applied style) */
+#mqp1{
+    background-color: red;
+}
+#mqp2{
+    background-color: blue;
+}
+#mqp3{
+    background-color: yellow;
+}
+/* Standard Media Query Break-points (min-width)
+   320px  : potrait iPhone, porait Android Phone (480x320)
+   480px  : potrait Android Phone, landscape iPhone
+   600px  : potrait Tablet, potrait iPad, E-readers (Nook/Kindle), landscape Android Phone (800x400)
+   801px  : Tablet, landscape iPad, lo-res Laptop and Desktop
+   1025px : landscape Tablet, Laptop, Desktop
+   1281px : hi-res Laptop and Desktop */
+@media screen and (min-width:801px){ /* Apply for screen size greater than 800px */
+    /* Mobile first approach -> Develop for mobile and edit for desktops using (easy approach) */
+    /* screen -> devices, print -> printable format, speech -> screen readers, all -> for all above (default) */
+    .mediaq p{
+        width: 30%;
+        float: left;
+        margin:10px;
+        padding: 5px;
+    }
+    #mqp3{
+        background-color: greenyellow;
+    }
+}
+/* .container p{ 
+    width:100% -> updates width which affect media query
+} */
+@media print {
+    body{
+        background-color: rgb(255, 140, 0);
+    }
+}

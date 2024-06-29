@@ -1,0 +1,12 @@
+html{
+    font-size: 20px;
+}
+.alteredtextsize{
+    font-size: 1.5em;
+}
+#pa2{
+    font-size: 2em;
+}
+#pa3{
+    font-size: 2rem;
+}
